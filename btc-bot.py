@@ -23,7 +23,7 @@ async def on_ready():
 
 @bot.event
 async def on_command_error(ctx, error):
-    print(f'[>] Error: {error}')
+    print(f'Error: {error}')
 
 @bot.command()
 async def btc(ctx, amount):
@@ -33,7 +33,7 @@ async def btc(ctx, amount):
         embed = discord.Embed(title = "Pay Skeleton", color = 0xFC2C54)
         embed.add_field(name='Address', value=f'``{address}``', inline=False)
         embed.add_field(name='Amount', value=f'``{amountToSend}``', inline=False)
-        embed.set_thumbnail(url='https://terror.win/images/skeleton.gif')
+        embed.set_thumbnail(url='https://terror.win/thumbnail.png')
         await ctx.send(embed=embed)
     except:
         print("[>] Cannot send embeds here.")
@@ -41,5 +41,4 @@ async def btc(ctx, amount):
 try:
     bot.run(token, bot=False, reconnect=True)
 except Exception as E:
-    print('Invalid token')
-    print(E)
+    print(f'[>] Error: {E}')
