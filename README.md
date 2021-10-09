@@ -1,5 +1,5 @@
 # Discord-Invoice-Bot
-An invoice self bot to display your address and amount depending on your input.
+An invoice self bot to display your address and amount of bitcoin, converted from USD.
 
 Please note that this is a self bot, you need to put your user token in the config file, not a bot token.
 
