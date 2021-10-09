@@ -27,15 +27,18 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def btc(ctx, amount):
     await ctx.message.delete()
-    try:
-        amountToSend = requests.get(f'https://blockchain.info/tobtc?currency=USD&value={amount}').text
-        embed = discord.Embed(title = "Pay Skeleton", color = 0xFC2C54)
-        embed.add_field(name='Address', value=f'``{address}``', inline=False)
-        embed.add_field(name='Amount', value=f'``{amountToSend}``', inline=False)
-        embed.set_thumbnail(url='https://terror.win/thumbnail.png')
-        await ctx.send(embed=embed)
-    except:
-        print("[>] Cannot send embeds here.")
+    if ctx.message.author == client.user:
+        try:
+            amountToSend = requests.get(f'https://blockchain.info/tobtc?currency=USD&value={amount}').text
+            embed = discord.Embed(title = "Pay Skeleton", color = 0xFC2C54)
+            embed.add_field(name='Address', value=f'``{address}``', inline=False)
+            embed.add_field(name='Amount', value=f'``{amountToSend}``', inline=False)
+            embed.set_thumbnail(url='https://terror.win/thumbnail.png')
+            await ctx.send(embed=embed)
+        except:
+            print("[>] Cannot send embeds here.")
+    else:
+        return
 
 try:
     bot.run(token, bot=False, reconnect=True)
