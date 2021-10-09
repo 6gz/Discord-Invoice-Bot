@@ -23,7 +23,7 @@ async def on_ready():
 
 @bot.event
 async def on_command_error(ctx, error):
-    print(f'Error: {error}')
+    print(f'[>] Error: {error}')
 
 @bot.command()
 async def btc(ctx, amount):
