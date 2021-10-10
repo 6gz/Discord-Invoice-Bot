@@ -32,8 +32,8 @@ async def btc(ctx, amount):
             amountToSend = requests.get(f'https://blockchain.info/tobtc?currency=USD&value={amount}').text
             embed = discord.Embed(title = "Pay Skeleton", color = 0xFC2C54)
             embed.add_field(name='Address', value=f'``{address}``', inline=False)
-            embed.add_field(name='Amount in USD', value=f'``${amount}``', inline=False)
-            embed.add_field(name='Amount in Bitcoin', value=f'``{amountToSend}``', inline=False)
+            embed.add_field(name='BTC Amount', value=f'``{amountToSend}``', inline=False)
+            embed.add_field(name='USD Amount', value=f'``${amount}``', inline=False)
             embed.set_thumbnail(url='https://terror.win/thumbnail.png')
             await ctx.send(embed=embed)
         except:
