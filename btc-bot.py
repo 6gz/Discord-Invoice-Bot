@@ -27,7 +27,7 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def btc(ctx, amount):
     await ctx.message.delete()
-    if ctx.message.author == client.user:
+    if ctx.message.author == bot.user:
         try:
             amountToSend = requests.get(f'https://blockchain.info/tobtc?currency=USD&value={amount}').text
             embed = discord.Embed(title = "Pay Skeleton", color = 0xFC2C54)
